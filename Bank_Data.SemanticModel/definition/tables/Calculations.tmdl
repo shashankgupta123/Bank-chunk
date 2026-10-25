@@ -1,0 +1,62 @@
+table Calculations
+	lineageTag: ef9e86ca-9e3f-4674-b809-42b58958a3ec
+
+	measure 'Total customers' = COUNT(Bank_Churn[CustomerId])
+		formatString: 0
+		lineageTag: a759d9ae-5e18-46cf-a0c0-3a9ba1b32b21
+
+	measure 'Active Cutomers' = CALCULATE(COUNT(Bank_Churn[CustomerId]), ActiveCustomer[ActiveCategory] = "Active Member")
+		formatString: 0
+		lineageTag: b856e079-09a3-471f-a9f5-558440fc2ccf
+
+	measure 'Credit Card Holder' = CALCULATE(COUNT(Bank_Churn[CustomerId]), CreditCard[Category] = "credit card holder")
+		formatString: 0
+		lineageTag: 554f7fdc-59be-4842-9ba2-07d71b8dd282
+
+	measure 'Exit Cutomer' = CALCULATE([Total customers], ExitCustomer[ExitCategory] = "Exit")
+		formatString: 0
+		lineageTag: 358a220d-4a4f-42be-ab4a-944aa799f2f0
+
+	measure 'Inactive customerss' = CALCULATE(COUNT(Bank_Churn[CustomerId]), ActiveCustomer[ActiveCategory] = "Inactive Member")
+		formatString: 0
+		lineageTag: dc56fc0d-d136-4925-9a14-68d39cb534d4
+
+	measure 'Non Credit Card Holder' = CALCULATE(COUNT(Bank_Churn[CustomerId]), CreditCard[Category] = "non credit card holder")
+		formatString: 0
+		lineageTag: a065ad61-b81a-4703-8d78-f0a2b616cd90
+
+	measure 'Retain Cutomers' = CALCULATE([Total customers], ExitCustomer[ExitCategory] = "Retain")
+		formatString: 0
+		lineageTag: 0a97ac8a-80a1-40a4-8f97-5a4c98433d09
+
+	measure 'pervious month exit customers' = CALCULATE([Exit Cutomer],PREVIOUSMONTH(DateMaster[Date]))
+		formatString: 0
+		lineageTag: ab52f122-b8df-4b87-a85d-711976d8ffe6
+
+	measure 'churn %' =
+			
+			VAR EC = [Exit Cutomer]
+			VAR TC = [Total customers]
+			VAR churner = DIVIDE(EC, TC)
+			RETURN churner
+		lineageTag: 696ebb0a-c301-4d12-8d25-54bae6bad3cf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 68894c26-b99f-44ea-a6eb-324121dfd167
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calculations = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = bb41214fe58041e8857dcf964e2bd151
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

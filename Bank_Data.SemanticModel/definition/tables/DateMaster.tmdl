@@ -1,0 +1,43 @@
+table DateMaster
+	lineageTag: aafcc4c1-b6c9-4b67-bcdc-e217c38eec9b
+
+	column Date
+		formatString: General Date
+		lineageTag: a3b3b440-7d3b-420f-91ba-a08a8a51793f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 4449f7d3-a471-44d8-9625-45de5952ac2d
+			defaultHierarchy: LocalDateTable_6189d580-2986-490e-9643-fa63254916ce.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = MONTH(DateMaster[Date])
+		formatString: 0
+		lineageTag: 618869d1-b0e7-443b-a047-771f71383437
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name' = FORMAT(DateMaster[Date], "MMM")
+		lineageTag: 58ae0e84-625f-45f0-b9f5-e8946b7c9ee6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = YEAR(DateMaster[Date])
+		formatString: 0
+		lineageTag: e4e1b5e5-3daf-4b19-9702-d3fb93e13634
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DateMaster = calculated
+		mode: import
+		source = CALENDAR(FIRSTDATE(Bank_Churn[Bank DOJ]), LASTDATE(Bank_Churn[Bank DOJ]))
+
+	annotation PBI_Id = bcd23779e6c14b2a853a4dd35ee3153b
+

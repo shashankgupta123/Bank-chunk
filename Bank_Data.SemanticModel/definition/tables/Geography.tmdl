@@ -1,0 +1,33 @@
+table Geography
+	lineageTag: a726a09c-1aac-46d1-9de2-ba9f19d0418f
+
+	column GeographyID
+		dataType: int64
+		formatString: 0
+		lineageTag: ea511e4b-3217-4d84-9d46-e5a9f4584813
+		summarizeBy: none
+		sourceColumn: GeographyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyLocation
+		dataType: string
+		lineageTag: e619de73-c165-4d6a-8ccb-973e7982a0e4
+		summarizeBy: none
+		sourceColumn: GeographyLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Geography = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\vi\Downloads\Geography.xlsx"), null, true),
+				    Geography_Sheet = Source{[Item="Geography",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Geography_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GeographyID", Int64.Type}, {"GeographyLocation", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

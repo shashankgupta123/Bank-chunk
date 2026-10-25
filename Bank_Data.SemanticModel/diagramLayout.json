@@ -1,0 +1,139 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 547.34702821427754,
+        "y": 21.489376223069396
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1558.9278028056797,
+            "y": 737.33894219256069
+          },
+          "nodeIndex": "Geography",
+          "nodeLineageTag": "a726a09c-1aac-46d1-9de2-ba9f19d0418f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 914.46035827229036,
+            "y": 721.53793070703978
+          },
+          "nodeIndex": "Gender",
+          "nodeLineageTag": "f82beca7-dcc0-4936-86ce-b5c2cd380692",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 885.60033085897339,
+            "y": 465.56154464159863
+          },
+          "nodeIndex": "ExitCustomer",
+          "nodeLineageTag": "3efb67fa-6e20-4ecd-b90e-4524924831c5",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 855.16020229710421,
+            "y": 212.74536087326163
+          },
+          "nodeIndex": "CreditCard",
+          "nodeLineageTag": "d3465350-f304-4d0c-82cf-e7fcfcc27500",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1233.9662712102306,
+            "y": 119.51939310868737
+          },
+          "nodeIndex": "ActiveCustomer",
+          "nodeLineageTag": "cb905775-5983-4840-923a-5deef1605d81",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1247.7689748078205,
+            "y": 317.93759984806644
+          },
+          "nodeIndex": "Bank_Churn",
+          "nodeLineageTag": "f1ea4475-e3d3-43a2-a395-fee6c84609ba",
+          "size": {
+            "height": 426.40809188416847,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1602.8735264926652,
+            "y": 166.92242756525056
+          },
+          "nodeIndex": "CustomerInfo",
+          "nodeLineageTag": "d324fe1c-ce97-4edf-875e-84335c831d53",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1614.7800894236482,
+            "y": 407.44012856186913
+          },
+          "nodeIndex": "DateMaster",
+          "nodeLineageTag": "aafcc4c1-b6c9-4b67-bcdc-e217c38eec9b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 525.346710401453,
+            "y": 14.110455168484407
+          },
+          "nodeIndex": "Calculations",
+          "nodeLineageTag": "ef9e86ca-9e3f-4674-b809-42b58958a3ec",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 8
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 63.287087723234038,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

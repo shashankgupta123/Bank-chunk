@@ -1,0 +1,33 @@
+table ExitCustomer
+	lineageTag: 3efb67fa-6e20-4ecd-b90e-4524924831c5
+
+	column ExitID
+		dataType: int64
+		formatString: 0
+		lineageTag: 20405a3a-2a18-418f-b8aa-e95b40b3965d
+		summarizeBy: none
+		sourceColumn: ExitID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExitCategory
+		dataType: string
+		lineageTag: 14b0aa31-2e27-4e8e-8840-e7f7266b1e2b
+		summarizeBy: none
+		sourceColumn: ExitCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ExitCustomer = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\vi\Downloads\ExitCustomer.xlsx"), null, true),
+				    ExitCustomer_Sheet = Source{[Item="ExitCustomer",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(ExitCustomer_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ExitID", Int64.Type}, {"ExitCategory", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

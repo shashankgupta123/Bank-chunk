@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Cohort review",
+  "name": "32b2c515c5cea5ef27c2",
+  "options": {
+    "targetVisualNames": [],
+    "suppressData": true,
+    "suppressDisplay": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "023ca0640cfa894e7d47",
+    "sections": {}
+  }
+}
